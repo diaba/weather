@@ -1,0 +1,28 @@
+<section>
+    <h2>What's the Weather Where You're At?</h2>
+    Search String: 
+    <input [(ngModel)]="unit" type="text" class="form-control" placeholder="Unit"/>
+    
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" [(ngModel)]="unit" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">standard</a>
+          <a class="dropdown-item" href="#">metric</a>
+          <a class="dropdown-item" href="#">imperial</a>
+        </div>
+      </div>
+    <input [(ngModel)]="zip" type="text" class="form-control" placeholder="Zip Code Here"/>
+    <input (click)="findWeather(zip,unit)" type="submit" value="Search" class="btn btn-success"/>
+</section>
+<section *ngIf="weather">
+    <h3>Here's the weather in {{ weather.name}} :</h3>
+    <p>
+      Currently   {{ weather.weather[0].description }} with temperature: {{ weather.main.temp}}
+    </p>
+    <p>There's a high of {{weather.main.temp_max}} degrees and a low of {{weather.main.temp_min}}</p>
+    <p>Humidity: {{weather.main.humidity}}</p>
+    <p>Feels like: {{weather.main.feels_like}}</p>
+</section>
+<!-- How to make Request 1 fetch 2, Axios, 3- XMLHttpRequest 4. JQuery -->
